@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 import { ExternalLink, Github, Bot, Brain, MessageCircle, User, Globe } from "lucide-react";
 import fallDetectionImg from "@/assets/fall-detection.jpg";
 import actionRecognitionImg from "@/assets/action-recognition.jpg";
@@ -110,38 +111,77 @@ const Projects = () => {
     ? projects 
     : projects.filter(project => project.category === activeCategory);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  };
+
   return (
-    <section id="projects" className="py-20 bg-muted/30">
+    <section id="projects" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             <span className="text-gradient">Projects</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills in AI/ML, full-stack development, and modern web technologies.
+            Recent projects showcasing my skills in AI/ML, full-stack development, and modern web technologies
           </p>
-        </div>
+        </motion.div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-wrap justify-center gap-4 mb-12"
+        >
           {categories.map((category) => (
-            <Button
-              key={category}
-              variant={activeCategory === category ? "default" : "outline"}
-              onClick={() => setActiveCategory(category)}
-              className={activeCategory === category 
-                ? "gradient-primary text-primary-foreground" 
-                : "border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-              }
-            >
-              {category}
-            </Button>
+            <motion.div key={category} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                variant={activeCategory === category ? "default" : "outline"}
+                onClick={() => setActiveCategory(category)}
+                className={activeCategory === category 
+                  ? "gradient-primary text-primary-foreground" 
+                  : "border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                }
+              >
+                {category}
+              </Button>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {filteredProjects.map((project, index) => (
-            <Card key={index} className="card-shadow transition-smooth hover:scale-105 bg-card/50 backdrop-blur-sm border-border/50 overflow-hidden group">
+            <motion.div key={index} variants={itemVariants}>
+              <Card className="card-shadow transition-smooth hover:scale-105 bg-card/50 backdrop-blur-sm border-border/50 overflow-hidden group h-full flex flex-col">
               <div className="relative overflow-hidden">
                 <img 
                   src={project.image} 
@@ -206,9 +246,10 @@ const Projects = () => {
                   </Button>
                 </div>
               </CardContent>
-            </Card>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
