@@ -2,47 +2,81 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { motion } from "framer-motion";
-import { ExternalLink, Github, Bot, Brain, MessageCircle, User, Globe } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink, Github, Bot, Brain, MessageCircle, User, Globe, Monitor, Activity } from "lucide-react";
 import fallDetectionImg from "@/assets/fall-detection.jpg";
 import actionRecognitionImg from "@/assets/action-recognition.jpg";
 import chatAppImg from "@/assets/chat-app.jpg";
 import chatbotImg from "@/assets/chatbot.jpg";
 import portfolioImg from "@/assets/portfolio-project.jpg";
+import consultingImg from "@/assets/consulting-website.jpg";
+import smartMonitoringImg from "@/assets/smart-monitoring.jpg";
 
 const Projects = () => {
   const projects = [
     {
-      title: "AI-Based Fall Detection using Deep Transfer Learning",
-      description: "Implemented a deep transfer learning model based on VGG16 to detect falls from RGB images in home environments with edge computing integration.",
+      title: "Smart Monitoring Platform",
+      description: "Real-time dashboard for IoT/AI-based monitoring systems with live analytics and role-based access control.",
+      image: smartMonitoringImg,
+      icon: Activity,
+      technologies: ["React", "WebSockets", "Spring Boot", "PostgreSQL", "MQTT"],
+      features: [
+        "Real-time analytics dashboard with live data visualization",
+        "IoT device integration via MQTT protocol",
+        "Role-based access control and user management",
+        "Alert system with customizable thresholds",
+        "API integration for external data sources"
+      ],
+      github: "#",
+      demo: "#",
+      category: "Full Stack"
+    },
+    {
+      title: "Consulting Website",
+      description: "Professional consulting website for client onboarding, service showcasing, and appointment scheduling.",
+      image: consultingImg,
+      icon: Globe,
+      technologies: ["React", "Node.js", "REST APIs", "Tailwind CSS", "Email Integration"],
+      features: [
+        "SEO-ready pages with optimized performance",
+        "Automated email workflows for client communication",
+        "Custom CMS for easy content updates",
+        "Appointment scheduling integration",
+        "Responsive design for all devices"
+      ],
+      github: "#",
+      demo: "#",
+      category: "Frontend"
+    },
+    {
+      title: "AI-Based Fall Detection",
+      description: "Deep transfer learning model using VGG16 to detect falls from RGB images with edge computing integration.",
       image: fallDetectionImg,
       icon: Brain,
       technologies: ["Python", "Keras", "VGG16", "OpenCV", "Sockets", "Tkinter"],
       features: [
-        "Deep transfer learning model based on VGG16 architecture",
+        "Deep transfer learning with VGG16 architecture",
         "Edge computing with local model inference",
-        "Socket-based communication for cloud server transmission",
-        "Bounding box regression and classification for fall detection",
-        "Real-time image processing with high prediction accuracy",
-        "GUI using Tkinter for data upload and result monitoring"
+        "Socket-based cloud communication",
+        "Real-time image processing",
+        "GUI for data upload and monitoring"
       ],
       github: "#",
       demo: "#",
       category: "AI/ML"
     },
     {
-      title: "AI-Powered Human Action Recognition",
-      description: "Integrated a pre-trained ResNet-34 deep learning model to recognize human actions from depth maps and postural cues with 95% accuracy.",
+      title: "Human Action Recognition",
+      description: "Pre-trained ResNet-34 model for recognizing human actions from depth maps with 95% accuracy.",
       image: actionRecognitionImg,
       icon: Brain,
       technologies: ["Python", "OpenCV", "ONNX", "ResNet-34", "Computer Vision"],
       features: [
-        "Pre-trained ResNet-34 model converted to ONNX format",
+        "ResNet-34 model converted to ONNX format",
         "Real-time action recognition from depth maps",
-        "OpenCV integration for video frame processing",
-        "95% classification accuracy with sub-200ms latency",
-        "Dynamic AI-driven video annotation",
-        "Application in surveillance and healthcare domains"
+        "95% classification accuracy",
+        "Sub-200ms inference latency",
+        "Applications in surveillance and healthcare"
       ],
       github: "#",
       demo: "#",
@@ -50,17 +84,16 @@ const Projects = () => {
     },
     {
       title: "Real-time Chat Application",
-      description: "Developed a full-stack real-time chat application with React.js frontend and Node.js backend, featuring instant messaging and secure authentication.",
+      description: "Full-stack real-time chat with React frontend and Node.js backend featuring instant messaging.",
       image: chatAppImg,
       icon: MessageCircle,
-      technologies: ["React.js", "Node.js", "Express.js", "Socket.io", "MongoDB", "Firebase"],
+      technologies: ["React.js", "Node.js", "Socket.io", "MongoDB", "Firebase"],
       features: [
-        "Responsive React.js frontend with modern UI/UX",
-        "Secure Node.js & Express.js backend architecture",
-        "Real-time messaging using Web Sockets (Socket.io)",
-        "RESTful API with authentication and middleware",
-        "MongoDB/Firebase integration for message persistence",
-        "Deployed on Vercel (Frontend) + Render/Heroku (Backend)"
+        "Real-time messaging with Socket.io",
+        "Secure authentication and middleware",
+        "MongoDB/Firebase for message persistence",
+        "Responsive React.js frontend",
+        "Deployed on Vercel + Render"
       ],
       github: "#",
       demo: "#",
@@ -68,35 +101,33 @@ const Projects = () => {
     },
     {
       title: "AI Chatbot using React",
-      description: "Built an intelligent chatbot interface using React with natural language processing capabilities and modern conversational UI.",
+      description: "Intelligent chatbot interface with NLP capabilities and modern conversational UI.",
       image: chatbotImg,
       icon: Bot,
       technologies: ["React.js", "TypeScript", "NLP", "REST API", "CSS3"],
       features: [
-        "Interactive chatbot interface with React components",
         "Natural language processing integration",
-        "Real-time message handling and responses",
-        "Modern conversational UI with typing indicators",
-        "Responsive design for all device types",
-        "Context-aware conversation management"
+        "Real-time message handling",
+        "Modern conversational UI",
+        "Typing indicators and animations",
+        "Context-aware conversations"
       ],
       github: "#",
       demo: "#",
       category: "Frontend"
     },
     {
-      title: "Portfolio Website using React",
-      description: "Designed and developed a modern, responsive portfolio website showcasing projects and skills with beautiful animations and interactions.",
+      title: "Portfolio Website",
+      description: "Modern, responsive portfolio with beautiful animations and interactive project showcases.",
       image: portfolioImg,
       icon: User,
-      technologies: ["React.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
+      technologies: ["React.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
       features: [
-        "Modern and responsive design with smooth animations",
-        "Component-based architecture using React",
-        "Tailwind CSS for styling with custom design system",
-        "Interactive project showcases and skill visualizations",
-        "Contact form with email integration",
-        "SEO optimized and performance focused"
+        "Smooth animations with Framer Motion",
+        "Component-based architecture",
+        "Custom design system",
+        "SEO optimized",
+        "Performance focused"
       ],
       github: "#",
       demo: "#",
@@ -122,7 +153,7 @@ const Projects = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
@@ -131,8 +162,13 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="py-24 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary/10 via-background to-secondary/10" />
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -140,9 +176,14 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <motion.h2 
+            className="text-4xl md:text-5xl font-bold mb-4"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+          >
             <span className="text-gradient">Projects</span>
-          </h2>
+          </motion.h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Recent projects showcasing my skills in AI/ML, full-stack development, and modern web technologies
           </p>
@@ -154,7 +195,7 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="flex flex-wrap justify-center gap-3 mb-12"
         >
           {categories.map((category) => (
             <motion.div key={category} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -162,8 +203,8 @@ const Projects = () => {
                 variant={activeCategory === category ? "default" : "outline"}
                 onClick={() => setActiveCategory(category)}
                 className={activeCategory === category 
-                  ? "gradient-primary text-primary-foreground" 
-                  : "border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                  ? "gradient-primary text-primary-foreground glow-primary" 
+                  : "border-primary/30 text-foreground hover:bg-primary/10 hover:border-primary/50"
                 }
               >
                 {category}
@@ -173,82 +214,111 @@ const Projects = () => {
         </motion.div>
 
         <motion.div 
+          layout
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {filteredProjects.map((project, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              <Card className="card-shadow transition-smooth hover:scale-105 bg-card/50 backdrop-blur-sm border-border/50 overflow-hidden group h-full flex flex-col">
-              <div className="relative overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-48 object-cover transition-smooth group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-smooth"></div>
-                <div className="absolute top-4 right-4">
-                  <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center">
-                    <project.icon className="h-5 w-5 text-primary-foreground" />
-                  </div>
-                </div>
-              </div>
-              
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <CardTitle className="text-lg leading-tight">{project.title}</CardTitle>
-                  <Badge variant="secondary" className="text-xs">
-                    {project.category}
-                  </Badge>
-                </div>
-                <p className="text-sm text-muted-foreground">{project.description}</p>
-              </CardHeader>
-              
-              <CardContent className="space-y-4">
-                <div>
-                  <h4 className="font-semibold mb-2 text-primary text-sm">Key Features:</h4>
-                  <ul className="space-y-1">
-                    {project.features.slice(0, 3).map((feature, idx) => (
-                      <li key={idx} className="flex items-start space-x-2 text-xs">
-                        <div className="w-1 h-1 rounded-full bg-primary mt-1.5 flex-shrink-0"></div>
-                        <span className="text-muted-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div>
-                  <h4 className="font-semibold mb-2 text-primary text-sm">Technologies:</h4>
-                  <div className="flex flex-wrap gap-1">
-                    {project.technologies.slice(0, 4).map((tech, idx) => (
-                      <Badge key={idx} variant="outline" className="text-xs border-primary/50 text-primary">
-                        {tech}
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, index) => (
+              <motion.div 
+                key={project.title} 
+                variants={itemVariants}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Card className="h-full glass-effect border-border/30 hover:border-primary/50 transition-all duration-300 hover:scale-[1.02] overflow-hidden group">
+                  {/* Image */}
+                  <div className="relative overflow-hidden">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
+                    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
+                    
+                    {/* Icon badge */}
+                    <div className="absolute top-4 right-4">
+                      <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center glow-primary">
+                        <project.icon className="h-5 w-5 text-primary-foreground" />
+                      </div>
+                    </div>
+
+                    {/* Category badge */}
+                    <div className="absolute top-4 left-4">
+                      <Badge className="bg-background/80 backdrop-blur-sm text-primary border-primary/30">
+                        {project.category}
                       </Badge>
-                    ))}
-                    {project.technologies.length > 4 && (
-                      <Badge variant="outline" className="text-xs border-primary/50 text-primary">
-                        +{project.technologies.length - 4}
-                      </Badge>
-                    )}
+                    </div>
                   </div>
-                </div>
-                
-                <div className="flex space-x-2 pt-2">
-                  <Button size="sm" variant="outline" className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                    <Github className="h-3 w-3 mr-1" />
-                    Code
-                  </Button>
-                  <Button size="sm" className="flex-1 gradient-primary text-primary-foreground hover:glow-primary">
-                    <ExternalLink className="h-3 w-3 mr-1" />
-                    Demo
-                  </Button>
-                </div>
-              </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                  
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-lg text-foreground group-hover:text-primary transition-colors">
+                      {project.title}
+                    </CardTitle>
+                    <p className="text-sm text-muted-foreground">{project.description}</p>
+                  </CardHeader>
+                  
+                  <CardContent className="space-y-4">
+                    {/* Features */}
+                    <div>
+                      <ul className="space-y-1">
+                        {project.features.slice(0, 3).map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
+                            <div className="w-1 h-1 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    {/* Tech stack */}
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.technologies.slice(0, 4).map((tech, idx) => (
+                        <Badge 
+                          key={idx} 
+                          variant="outline" 
+                          className="text-xs border-primary/30 text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-colors"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.technologies.length > 4 && (
+                        <Badge variant="outline" className="text-xs border-primary/30 text-muted-foreground">
+                          +{project.technologies.length - 4}
+                        </Badge>
+                      )}
+                    </div>
+                    
+                    {/* Actions */}
+                    <div className="flex gap-2 pt-2">
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="flex-1 border-primary/30 text-foreground hover:bg-primary/10 hover:border-primary/50"
+                      >
+                        <Github className="h-3 w-3 mr-1" />
+                        Code
+                      </Button>
+                      <Button 
+                        size="sm" 
+                        className="flex-1 gradient-primary text-primary-foreground hover:glow-primary"
+                      >
+                        <ExternalLink className="h-3 w-3 mr-1" />
+                        Demo
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </motion.div>
       </div>
     </section>
