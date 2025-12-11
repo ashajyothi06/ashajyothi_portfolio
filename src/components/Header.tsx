@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Github, FileText } from "lucide-react";
+import { Menu, X, Github } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Header = () => {
@@ -20,6 +20,7 @@ const Header = () => {
     { name: "Skills", href: "#skills" },
     { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
+    { name: "Achievements", href: "#achievements" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -57,18 +58,20 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Action Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" size="sm" asChild>
-              <a href="https://github.com/ashajyothi06" target="_blank" rel="noopener noreferrer">
-                <Github className="h-4 w-4 mr-2" />
-                GitHub
-              </a>
-            </Button>
-            <Button size="sm" className="gradient-primary text-primary-foreground hover:glow-primary">
-              <FileText className="h-4 w-4 mr-2" />
-              Resume
-            </Button>
+          {/* GitHub Icon Button */}
+          <div className="hidden md:flex items-center">
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+              <Button 
+                variant="outline" 
+                size="icon" 
+                className="rounded-xl border-primary/30 hover:border-primary hover:bg-primary/20 hover:glow-primary transition-all duration-300"
+                asChild
+              >
+                <a href="https://github.com/ashajyothi06" target="_blank" rel="noopener noreferrer">
+                  <Github className="h-5 w-5" />
+                </a>
+              </Button>
+            </motion.div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -96,18 +99,17 @@ const Header = () => {
                   {item.name}
                 </a>
               ))}
-              <div className="flex flex-col space-y-2 pt-2">
-                <Button variant="ghost" size="sm" asChild>
-                  <a href="https://github.com/ashajyothi06" target="_blank" rel="noopener noreferrer">
-                    <Github className="h-4 w-4 mr-2" />
-                    GitHub
-                  </a>
-                </Button>
-                <Button size="sm" className="gradient-primary text-primary-foreground">
-                  <FileText className="h-4 w-4 mr-2" />
-                  Resume
-                </Button>
-              </div>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="border-primary/30 hover:bg-primary/20"
+                asChild
+              >
+                <a href="https://github.com/ashajyothi06" target="_blank" rel="noopener noreferrer">
+                  <Github className="h-4 w-4 mr-2" />
+                  GitHub
+                </a>
+              </Button>
             </div>
           </nav>
         )}
