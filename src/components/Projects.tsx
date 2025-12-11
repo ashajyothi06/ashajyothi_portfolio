@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, Bot, Brain, MessageCircle, User, Globe, Monitor, Activity } from "lucide-react";
+import { ExternalLink, Github, Bot, Brain, MessageCircle, User, Globe, Monitor, Activity, FileSearch, Cloud, PenTool } from "lucide-react";
 import fallDetectionImg from "@/assets/fall-detection.jpg";
 import actionRecognitionImg from "@/assets/action-recognition.jpg";
 import chatAppImg from "@/assets/chat-app.jpg";
@@ -14,6 +14,57 @@ import smartMonitoringImg from "@/assets/smart-monitoring.jpg";
 
 const Projects = () => {
   const projects = [
+    {
+      title: "Fake News Detection using ML",
+      description: "Machine learning model using NLP and TF-IDF to detect misinformation with high accuracy.",
+      image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&h=400&fit=crop",
+      icon: FileSearch,
+      technologies: ["Python", "NLP", "TF-IDF", "Logistic Regression", "Random Forest", "Scikit-learn"],
+      features: [
+        "NLP-based text analysis and feature extraction",
+        "TF-IDF vectorization for text representation",
+        "Logistic Regression & Random Forest classifiers",
+        "High accuracy in detecting misinformation",
+        "Comprehensive dataset preprocessing pipeline"
+      ],
+      github: "#",
+      demo: "#",
+      category: "AI/ML"
+    },
+    {
+      title: "Kubernetes E2E Deployment on AWS EKS",
+      description: "Complete CI/CD pipeline with Dockerized microservices, autoscaling, and AWS infrastructure.",
+      image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=600&h=400&fit=crop",
+      icon: Cloud,
+      technologies: ["Kubernetes", "AWS EKS", "Docker", "CI/CD", "IAM", "ECR", "Load Balancer"],
+      features: [
+        "Complete CI/CD pipeline automation",
+        "Dockerized microservices architecture",
+        "AWS EKS cluster setup and management",
+        "Autoscaling and load balancing configuration",
+        "IAM and ECR integration for security"
+      ],
+      github: "#",
+      demo: "#",
+      category: "DevOps"
+    },
+    {
+      title: "Blogging Website",
+      description: "Full-stack CRUD blog application with authentication, categories, and responsive UI.",
+      image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&h=400&fit=crop",
+      icon: PenTool,
+      technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "REST API"],
+      features: [
+        "Full CRUD operations for blog posts",
+        "User authentication with JWT tokens",
+        "Categories and tags for organization",
+        "Comments and interactions system",
+        "Fully responsive modern UI design"
+      ],
+      github: "#",
+      demo: "#",
+      category: "Full Stack"
+    },
     {
       title: "Smart Monitoring Platform",
       description: "Real-time dashboard for IoT/AI-based monitoring systems with live analytics and role-based access control.",
@@ -135,7 +186,7 @@ const Projects = () => {
     }
   ];
 
-  const categories = ["All", "AI/ML", "Full Stack", "Frontend"];
+  const categories = ["All", "AI/ML", "Full Stack", "Frontend", "DevOps"];
   const [activeCategory, setActiveCategory] = useState("All");
 
   const filteredProjects = activeCategory === "All" 

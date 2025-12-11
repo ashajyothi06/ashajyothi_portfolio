@@ -5,11 +5,11 @@ import {
   Code2, 
   Server, 
   Brain, 
-  Wrench,
   Database,
-  Shield,
+  Cloud,
+  Wrench,
   Zap,
-  Cloud
+  Shield
 } from "lucide-react";
 
 const Skills = () => {
@@ -34,34 +34,40 @@ const Skills = () => {
 
   const skillCategories = [
     {
+      title: "Programming",
+      icon: Code2,
+      skills: ["C", "C++", "Python", "Java", "JavaScript"],
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
       title: "Frontend",
       icon: Code2,
-      skills: ["React.js", "Vite", "Tailwind CSS", "HTML5", "CSS3", "JavaScript", "TypeScript"]
+      skills: ["React.js", "HTML5", "CSS3", "Responsive UI Development", "Tailwind CSS"],
+      color: "from-purple-500 to-pink-500"
     },
     {
       title: "Backend",
       icon: Server,
-      skills: ["Spring Boot", "Node.js", "Express.js", "REST APIs", "WebSockets", "Microservices"]
-    },
-    {
-      title: "AI / ML",
-      icon: Brain,
-      skills: ["Python", "NLP", "Computer Vision", "TensorFlow", "Model Deployment", "Deep Learning"]
+      skills: ["Node.js", "Express.js", "REST API Integration", "Spring Boot"],
+      color: "from-green-500 to-emerald-500"
     },
     {
       title: "Databases",
       icon: Database,
-      skills: ["PostgreSQL", "MySQL", "MongoDB", "Firebase", "Redis"]
+      skills: ["MySQL", "PostgreSQL", "MongoDB"],
+      color: "from-orange-500 to-red-500"
     },
     {
-      title: "DevOps & Cloud",
+      title: "AI / ML",
+      icon: Brain,
+      skills: ["TensorFlow", "Keras", "Scikit-learn", "Computer Vision (OpenCV)", "Edge ML", "NLP"],
+      color: "from-indigo-500 to-violet-500"
+    },
+    {
+      title: "DevOps & Tools",
       icon: Cloud,
-      skills: ["Docker", "Render", "Vercel", "Git", "GitHub", "CI/CD"]
-    },
-    {
-      title: "Other Skills",
-      icon: Shield,
-      skills: ["API Integration", "JWT Auth", "System Design", "MQTT", "Socket.io"]
+      skills: ["Docker", "Kubernetes", "AWS EKS", "Git", "CI/CD Pipelines", "Render"],
+      color: "from-yellow-500 to-orange-500"
     }
   ];
 
@@ -102,12 +108,19 @@ const Skills = () => {
         >
           {skillCategories.map((category, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <Card className="h-full glass-effect border-border/30 hover:border-primary/50 transition-all duration-300 hover:scale-[1.02] group">
+              <Card className="h-full glass-effect border-border/30 hover:border-primary/50 transition-all duration-300 hover:scale-[1.02] group overflow-hidden">
+                {/* Gradient top border */}
+                <div className={`h-1 bg-gradient-to-r ${category.color}`} />
+                
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center group-hover:glow-primary transition-all duration-300">
-                      <category.icon className="h-6 w-6 text-primary-foreground" />
-                    </div>
+                    <motion.div
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.5 }}
+                      className={`w-12 h-12 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center group-hover:shadow-lg transition-all duration-300`}
+                    >
+                      <category.icon className="h-6 w-6 text-white" />
+                    </motion.div>
                     <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
                       {category.title}
                     </CardTitle>
