@@ -68,12 +68,26 @@ const Hero = () => {
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/15 rounded-full blur-3xl float-animation" style={{ animationDelay: "-3s" }} />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
 
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: `linear-gradient(hsl(var(--primary) / 0.3) 1px, transparent 1px),
-                          linear-gradient(90deg, hsl(var(--primary) / 0.3) 1px, transparent 1px)`,
-        backgroundSize: '50px 50px'
+      {/* Enhanced Grid pattern overlay */}
+      <div className="absolute inset-0 opacity-20" style={{
+        backgroundImage: `
+          linear-gradient(hsl(var(--primary) / 0.4) 1px, transparent 1px),
+          linear-gradient(90deg, hsl(var(--primary) / 0.4) 1px, transparent 1px)
+        `,
+        backgroundSize: '60px 60px'
       }} />
+      
+      {/* Secondary finer grid */}
+      <div className="absolute inset-0 opacity-10" style={{
+        backgroundImage: `
+          linear-gradient(hsl(var(--primary) / 0.2) 1px, transparent 1px),
+          linear-gradient(90deg, hsl(var(--primary) / 0.2) 1px, transparent 1px)
+        `,
+        backgroundSize: '15px 15px'
+      }} />
+      
+      {/* Radial fade for grid */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background pointer-events-none" />
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <motion.div 
@@ -178,12 +192,35 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Illustration */}
+          {/* Illustration with themed background */}
           <motion.div 
             variants={imageVariants}
             className="flex justify-center lg:justify-end"
           >
             <div className="relative max-w-md lg:max-w-lg">
+              {/* Themed circular background */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-[400px] h-[400px] rounded-full bg-gradient-to-br from-primary/30 via-accent/20 to-primary/10 blur-2xl animate-pulse" />
+              </div>
+              
+              {/* Inner glow ring */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-[350px] h-[350px] rounded-full border border-primary/30 bg-gradient-to-t from-primary/20 via-transparent to-accent/10" />
+              </div>
+              
+              {/* Grid pattern behind character */}
+              <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+                <div className="w-[400px] h-[400px] rounded-full opacity-30" style={{
+                  backgroundImage: `
+                    linear-gradient(hsl(var(--primary) / 0.5) 1px, transparent 1px),
+                    linear-gradient(90deg, hsl(var(--primary) / 0.5) 1px, transparent 1px)
+                  `,
+                  backgroundSize: '30px 30px',
+                  maskImage: 'radial-gradient(circle, black 40%, transparent 70%)',
+                  WebkitMaskImage: 'radial-gradient(circle, black 40%, transparent 70%)'
+                }} />
+              </div>
+              
               <motion.div 
                 animate={{ 
                   y: [0, -15, 0],
@@ -198,12 +235,13 @@ const Hero = () => {
                 <img 
                   src={developerIllustration} 
                   alt="Developer Illustration"
-                  className="w-full h-auto max-h-[500px] object-contain drop-shadow-2xl"
+                  className="w-full h-auto max-h-[500px] object-contain drop-shadow-[0_0_30px_hsl(var(--primary)/0.4)]"
                 />
               </motion.div>
               
-              {/* Glow effect behind illustration */}
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-accent/20 to-transparent rounded-full blur-3xl opacity-60 -z-10" />
+              {/* Neon accent lines */}
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full blur-sm opacity-60" />
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-primary rounded-full" />
             </div>
           </motion.div>
         </motion.div>
