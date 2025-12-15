@@ -60,34 +60,41 @@ const Hero = () => {
       id="about" 
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
     >
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 animated-gradient" />
+      {/* Image-inspired gradient background - purple, blue, magenta tones */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: `
+            radial-gradient(ellipse 80% 60% at 70% 50%, hsla(280, 60%, 25%, 0.4) 0%, transparent 50%),
+            radial-gradient(ellipse 60% 50% at 30% 60%, hsla(220, 70%, 20%, 0.3) 0%, transparent 50%),
+            radial-gradient(ellipse 100% 80% at 50% 100%, hsla(260, 50%, 15%, 0.5) 0%, transparent 60%),
+            linear-gradient(135deg, hsl(240, 30%, 8%) 0%, hsl(260, 40%, 12%) 50%, hsl(280, 35%, 10%) 100%)
+          `
+        }}
+      />
       
-      {/* Floating orbs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl float-animation" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/15 rounded-full blur-3xl float-animation" style={{ animationDelay: "-3s" }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
+      {/* Soft ambient orbs matching image colors */}
+      <div className="absolute top-20 left-10 w-80 h-80 rounded-full blur-3xl float-animation" 
+        style={{ background: 'radial-gradient(circle, hsla(260, 60%, 50%, 0.15) 0%, transparent 70%)' }} 
+      />
+      <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl float-animation" 
+        style={{ background: 'radial-gradient(circle, hsla(200, 70%, 45%, 0.12) 0%, transparent 70%)', animationDelay: '-3s' }} 
+      />
+      <div className="absolute top-1/3 right-1/4 w-64 h-64 rounded-full blur-3xl float-animation" 
+        style={{ background: 'radial-gradient(circle, hsla(300, 50%, 40%, 0.1) 0%, transparent 70%)', animationDelay: '-1.5s' }} 
+      />
 
-      {/* Enhanced Grid pattern overlay */}
-      <div className="absolute inset-0 opacity-20" style={{
+      {/* Subtle grid pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.08]" style={{
         backgroundImage: `
-          linear-gradient(hsl(var(--primary) / 0.4) 1px, transparent 1px),
-          linear-gradient(90deg, hsl(var(--primary) / 0.4) 1px, transparent 1px)
+          linear-gradient(hsla(260, 60%, 60%, 0.5) 1px, transparent 1px),
+          linear-gradient(90deg, hsla(260, 60%, 60%, 0.5) 1px, transparent 1px)
         `,
-        backgroundSize: '60px 60px'
+        backgroundSize: '50px 50px'
       }} />
       
-      {/* Secondary finer grid */}
-      <div className="absolute inset-0 opacity-10" style={{
-        backgroundImage: `
-          linear-gradient(hsl(var(--primary) / 0.2) 1px, transparent 1px),
-          linear-gradient(90deg, hsl(var(--primary) / 0.2) 1px, transparent 1px)
-        `,
-        backgroundSize: '15px 15px'
-      }} />
-      
-      {/* Radial fade for grid */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background pointer-events-none" />
+      {/* Radial fade for depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/80 pointer-events-none" />
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <motion.div 
@@ -192,38 +199,35 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Illustration with themed background */}
+          {/* Illustration with soft ambient lighting */}
           <motion.div 
             variants={imageVariants}
             className="flex justify-center lg:justify-end"
           >
             <div className="relative max-w-md lg:max-w-lg">
-              {/* Themed circular background */}
+              {/* Soft ambient glow behind character - matching image colors */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[400px] h-[400px] rounded-full bg-gradient-to-br from-primary/30 via-accent/20 to-primary/10 blur-2xl animate-pulse" />
+                <div 
+                  className="w-[450px] h-[450px] rounded-full blur-3xl opacity-60"
+                  style={{ 
+                    background: 'radial-gradient(circle, hsla(260, 50%, 45%, 0.4) 0%, hsla(220, 60%, 35%, 0.2) 40%, transparent 70%)' 
+                  }} 
+                />
               </div>
               
-              {/* Inner glow ring */}
+              {/* Secondary subtle glow */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[350px] h-[350px] rounded-full border border-primary/30 bg-gradient-to-t from-primary/20 via-transparent to-accent/10" />
-              </div>
-              
-              {/* Grid pattern behind character */}
-              <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-                <div className="w-[400px] h-[400px] rounded-full opacity-30" style={{
-                  backgroundImage: `
-                    linear-gradient(hsl(var(--primary) / 0.5) 1px, transparent 1px),
-                    linear-gradient(90deg, hsl(var(--primary) / 0.5) 1px, transparent 1px)
-                  `,
-                  backgroundSize: '30px 30px',
-                  maskImage: 'radial-gradient(circle, black 40%, transparent 70%)',
-                  WebkitMaskImage: 'radial-gradient(circle, black 40%, transparent 70%)'
-                }} />
+                <div 
+                  className="w-[350px] h-[350px] rounded-full blur-2xl opacity-40"
+                  style={{ 
+                    background: 'radial-gradient(circle, hsla(200, 70%, 50%, 0.3) 0%, hsla(280, 50%, 40%, 0.15) 50%, transparent 70%)' 
+                  }} 
+                />
               </div>
               
               <motion.div 
                 animate={{ 
-                  y: [0, -15, 0],
+                  y: [0, -12, 0],
                 }}
                 transition={{
                   duration: 4,
@@ -235,13 +239,12 @@ const Hero = () => {
                 <img 
                   src={developerIllustration} 
                   alt="Developer Illustration"
-                  className="w-full h-auto max-h-[500px] object-contain drop-shadow-[0_0_30px_hsl(var(--primary)/0.4)]"
+                  className="w-full h-auto max-h-[520px] object-contain"
+                  style={{
+                    filter: 'drop-shadow(0 0 40px hsla(260, 60%, 50%, 0.3)) drop-shadow(0 20px 40px hsla(220, 50%, 20%, 0.4))'
+                  }}
                 />
               </motion.div>
-              
-              {/* Neon accent lines */}
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full blur-sm opacity-60" />
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-primary rounded-full" />
             </div>
           </motion.div>
         </motion.div>
