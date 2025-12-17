@@ -37,7 +37,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold">Email</h4>
-                    <p className="text-muted-foreground">ashajyothi@example.com</p>
+                    <p className="text-muted-foreground">ashajyothivelpula0506@gmail.com</p>
                   </div>
                 </CardContent>
               </Card>
@@ -49,7 +49,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold">Phone</h4>
-                    <p className="text-muted-foreground">+91 XXXXX XXXXX</p>
+                    <p className="text-muted-foreground">+91 9347350343</p>
                   </div>
                 </CardContent>
               </Card>
@@ -78,7 +78,7 @@ const Contact = () => {
                   </a>
                 </Button>
                 <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground" asChild>
-                  <a href="#" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/ashajyothi-velpula/" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="h-5 w-5 mr-2" />
                     LinkedIn
                   </a>

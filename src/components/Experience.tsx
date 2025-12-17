@@ -9,7 +9,7 @@ const Experience = () => {
       company: "Sklassics Technologies Pvt Ltd",
       position: "Software Developer (Intern)",
       location: "Hyderabad, India",
-      duration: "May 2025 - Present",
+      duration: "May 2025 - Sep 2025",
       type: "Internship",
       responsibilities: [
         "Developed and maintained React-based car rental applications, enhancing user experience with dynamic UI components and responsive designs",

@@ -9,8 +9,8 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/ashajyothi06", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:ashajyothi@example.com", label: "Email" }
+    { icon: Linkedin, href: "https://www.linkedin.com/in/ashajyothi-velpula/", label: "LinkedIn" },
+    { icon: Mail, href: "mailto:ashajyothivelpula0506@gmail.com", label: "Email" }
   ];
 
   const quickLinks = [
@@ -66,8 +66,8 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary" />
-                <a href="mailto:ashajyothi@example.com" className="hover:text-primary transition-colors">
-                  ashajyothi@example.com
+                <a href="mailto:ashajyothivelpula0506@gmail.com" className="hover:text-primary transition-colors">
+                  ashajyothivelpula0506@gmail.com
                 </a>
               </div>
             </div>
