@@ -221,7 +221,7 @@ const Projects = () => {
         "SEO optimized",
         "Performance focused",
       ],
-      github: "#",
+      github: "https://github.com/ashajyothi06/kinetic-insight-forge",
       demo: "#",
       category: "Frontend",
     },
