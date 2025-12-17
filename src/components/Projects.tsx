@@ -222,7 +222,7 @@ const Projects = () => {
         "Performance focused",
       ],
       github: "https://github.com/ashajyothi06/kinetic-insight-forge",
-      demo: "#",
+      demo: "https://myportfolio-chi-blond.vercel.app/",
       category: "Frontend",
     },
   ];

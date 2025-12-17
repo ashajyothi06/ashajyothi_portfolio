@@ -161,7 +161,7 @@ const Hero = () => {
                 asChild
               >
                 <a
-                  href="https://drive.google.com/file/d/YOUR_FILE_ID/view"
+                  href="https://drive.google.com/file/d/1bhYeCkTwaCGoP3WFA3K4nQ6TIa5wTi1j/view?usp=drivesdk"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

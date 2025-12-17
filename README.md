@@ -1,73 +1,112 @@
-# Welcome to your Lovable project
+# 🌐 Personal Portfolio Website
 
-## Project info
+This is my personal portfolio website, designed and developed to showcase my skills, projects, experience, and journey as a Computer Science engineer and frontend developer. The website reflects my passion for clean UI, modern web technologies, and problem-solving.
 
-**URL**: https://lovable.dev/projects/91d2b4ff-3464-4379-8068-22b2e43c6885
+## 🚀 About the Project
 
-## How can I edit this code?
+My portfolio serves as a centralized platform where I present:
 
-There are several ways of editing your application.
+Who I am and what I do
 
-**Use Lovable**
+My technical skills and interests
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/91d2b4ff-3464-4379-8068-22b2e43c6885) and start prompting.
+Projects I’ve built and worked on
 
-Changes made via Lovable will be committed automatically to this repo.
+Achievements and milestones
 
-**Use your preferred IDE**
+Professional experience and internships
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Case studies highlighting real-world problem solving
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Ways to get in touch with me
 
-Follow these steps:
+### The goal of this project is to create a simple, elegant, and responsive digital identity that represents my work and growth in technology.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🧩 Sections Included
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Home – A quick introduction and overview
 
-# Step 3: Install the necessary dependencies.
-npm i
+About – My background, skills, and interests
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Projects – A collection of projects with descriptions and tech stacks
+
+Case Studies – In-depth breakdowns of selected projects and solutions
+
+Experience – Internships, roles, and hands-on experience
+
+Achievements – Certifications, recognitions, and milestones
+
+Contact – Ways to connect with me
+
+## 🛠️ Tech Stack
+
+Frontend: React, TypeScript, HTML, CSS
+
+Styling: Tailwind CSS / Custom CSS
+
+Build Tool: Vite
+
+UI Components: Modern reusable components
+
+Version Control: Git & GitHub
+
+## ✨ Features
+
+Fully responsive design (desktop, tablet, mobile)
+
+Clean and modern UI
+
+Easy navigation across sections
+
+Scalable component-based architecture
+
+Optimized performance and fast loading
+
+SEO-friendly structure
+
+## 📸 Screenshots
+
+
+
+![Home Page](src/assets/about.png)
+![Tech Stack](src/assets/image2.png)
+![Projects](src/assets/image3.png)
+![achivements](src/assets/image5.png)
+![volunteer experience](src/assets/image6.png)
+![case](src/assets/image7.png)
+
+## ⚙️ How to Run Locally
+### Clone the repository
+git clone <your-repo-url>
+
+### Navigate to the project folder
+cd <project-folder-name>
+
+### Install dependencies
+npm install
+
+### Start the development server
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The application will be available at:
 
-**Use GitHub Codespaces**
+http://localhost:5173
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🎯 Purpose & Learning Outcomes
 
-## What technologies are used for this project?
+Through this project, I:
 
-This project is built with:
+Improved my frontend development skills
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Gained experience in building scalable React applications
 
-## How can I deploy this project?
+Practiced UI/UX design principles
 
-Simply open [Lovable](https://lovable.dev/projects/91d2b4ff-3464-4379-8068-22b2e43c6885) and click on Share -> Publish.
+Learned to structure and present projects professionally
 
-## Can I connect a custom domain to my Lovable project?
+Built a strong personal brand and online presence
 
-Yes, you can!
+## 📬 Contact
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+If you’d like to collaborate, provide feedback, or just connect, feel free to reach out through the Contact section on my portfolio.
