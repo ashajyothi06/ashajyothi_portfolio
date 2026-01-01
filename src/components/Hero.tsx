@@ -101,7 +101,7 @@ const Hero = () => {
           <div className="space-y-6">
             <motion.div variants={slideInLeft}>
               <p className="text-primary font-medium text-lg">Hi, I am</p>
-              <h1 className="text-5xl md:text-7xl font-bold text-foreground">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground whitespace-nowrap">
                 Ashajyothi <span className="text-gradient">Velpula</span>
               </h1>
             </motion.div>
