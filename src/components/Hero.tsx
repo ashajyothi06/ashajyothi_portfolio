@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import developerIllustration from "@/assets/developer-illustration.png";
+import aboutImage from "@/assets/about.png";
 
 const Hero = () => {
   const roles = ["Full-Stack Developer", "AI Engineer"];
@@ -60,32 +60,32 @@ const Hero = () => {
       id="about"
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
     >
-      {/* Background */}
+      {/* Light gradient background */}
       <div
         className="absolute inset-0"
         style={{
           background: `
-            radial-gradient(ellipse 80% 60% at 70% 50%, hsla(280, 60%, 25%, 0.4) 0%, transparent 50%),
-            radial-gradient(ellipse 60% 50% at 30% 60%, hsla(220, 70%, 20%, 0.3) 0%, transparent 50%),
-            radial-gradient(ellipse 100% 80% at 50% 100%, hsla(260, 50%, 15%, 0.5) 0%, transparent 60%),
-            linear-gradient(135deg, hsl(240, 30%, 8%) 0%, hsl(260, 40%, 12%) 50%, hsl(280, 35%, 10%) 100%)
+            radial-gradient(ellipse 80% 60% at 70% 50%, hsla(280, 60%, 85%, 0.4) 0%, transparent 50%),
+            radial-gradient(ellipse 60% 50% at 30% 60%, hsla(220, 70%, 90%, 0.3) 0%, transparent 50%),
+            radial-gradient(ellipse 100% 80% at 50% 100%, hsla(260, 50%, 92%, 0.5) 0%, transparent 60%),
+            linear-gradient(135deg, hsl(260, 30%, 98%) 0%, hsl(260, 25%, 95%) 50%, hsl(280, 20%, 96%) 100%)
           `,
         }}
       />
 
-      {/* Orbs */}
+      {/* Subtle orbs */}
       <div
         className="absolute top-20 left-10 w-80 h-80 rounded-full blur-3xl float-animation"
         style={{
           background:
-            "radial-gradient(circle, hsla(260, 60%, 50%, 0.15) 0%, transparent 70%)",
+            "radial-gradient(circle, hsla(260, 60%, 80%, 0.2) 0%, transparent 70%)",
         }}
       />
       <div
         className="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl float-animation"
         style={{
           background:
-            "radial-gradient(circle, hsla(200, 70%, 45%, 0.12) 0%, transparent 70%)",
+            "radial-gradient(circle, hsla(200, 70%, 85%, 0.15) 0%, transparent 70%)",
           animationDelay: "-3s",
         }}
       />
@@ -101,14 +101,14 @@ const Hero = () => {
           <div className="space-y-6">
             <motion.div variants={slideInLeft}>
               <p className="text-primary font-medium text-lg">Hi, I am</p>
-              <h1 className="text-5xl md:text-7xl font-bold">
+              <h1 className="text-5xl md:text-7xl font-bold text-foreground">
                 Ashajyothi <span className="text-gradient">Velpula</span>
               </h1>
             </motion.div>
 
             <motion.div
               variants={slideInUp}
-              className="flex items-center space-x-2 text-xl md:text-2xl h-10"
+              className="flex items-center space-x-2 text-xl md:text-2xl h-10 text-foreground"
             >
               <span>I am a</span>
               <AnimatePresence mode="wait">
@@ -153,11 +153,9 @@ const Hero = () => {
                 </a>
               </Button>
 
-              {/* ✅ Resume Button (Google Drive) */}
               <Button
                 variant="outline"
                 size="lg"
-                className="border-primary/50 text-primary"
                 asChild
               >
                 <a
@@ -177,29 +175,49 @@ const Hero = () => {
                 href="https://github.com/ashajyothi06"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
-                <Github />
+                <Github className="h-6 w-6" />
               </a>
               <a
                 href="https://www.linkedin.com/in/ashajyothi-velpula/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
-                <Linkedin />
+                <Linkedin className="h-6 w-6" />
               </a>
-              <a href="mailto:ashajyothivelpula0506@gmail.com">
-                <Mail />
+              <a
+                href="mailto:ashajyothivelpula0506@gmail.com"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Mail className="h-6 w-6" />
               </a>
             </motion.div>
           </div>
 
-          {/* Image */}
+          {/* Circular Image */}
           <motion.div variants={imageVariants} className="flex justify-center">
-            <img
-              src={developerIllustration}
-              alt="Developer Illustration"
-              className="max-h-[520px]"
-            />
+            <div className="relative">
+              {/* Glow effect behind image */}
+              <div
+                className="absolute inset-0 rounded-full blur-2xl opacity-40"
+                style={{
+                  background: "radial-gradient(circle, hsl(265, 85%, 70%) 0%, transparent 70%)",
+                  transform: "scale(1.2)",
+                }}
+              />
+              {/* Image container */}
+              <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl">
+                <img
+                  src={aboutImage}
+                  alt="Ashajyothi Velpula"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Decorative ring */}
+              <div className="absolute -inset-4 rounded-full border-2 border-primary/10" />
+            </div>
           </motion.div>
         </motion.div>
       </div>
