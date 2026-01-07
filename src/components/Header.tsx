@@ -86,33 +86,43 @@ const Header = () => {
           </Button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation Overlay */}
         {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-border">
-            <div className="flex flex-col space-y-3 pt-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-muted-foreground hover:text-primary transition-smooth py-2"
-                  onClick={() => setIsMenuOpen(false)}
+          <>
+            {/* Backdrop */}
+            <div 
+              className="fixed inset-0 bg-black/50 z-40 md:hidden"
+              onClick={() => setIsMenuOpen(false)}
+              aria-hidden="true"
+            />
+            
+            {/* Mobile Menu */}
+            <nav className="fixed top-[72px] left-0 right-0 md:hidden bg-background border-b border-border shadow-xl z-50">
+              <div className="flex flex-col p-6 space-y-4">
+                {navItems.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-foreground hover:text-primary transition-smooth py-3 px-4 rounded-lg hover:bg-muted/50 font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                ))}
+                <Button 
+                  variant="default" 
+                  size="default" 
+                  className="mt-2 bg-primary text-primary-foreground hover:bg-primary/90"
+                  asChild
                 >
-                  {item.name}
-                </a>
-              ))}
-              <Button 
-                variant="outline" 
-                size="sm" 
-                className="border-primary/30 hover:bg-primary/20"
-                asChild
-              >
-                <a href="https://github.com/ashajyothi06" target="_blank" rel="noopener noreferrer">
-                  <Github className="h-4 w-4 mr-2" />
-                  GitHub
-                </a>
-              </Button>
-            </div>
-          </nav>
+                  <a href="https://github.com/ashajyothi06" target="_blank" rel="noopener noreferrer">
+                    <Github className="h-4 w-4 mr-2" />
+                    GitHub
+                  </a>
+                </Button>
+              </div>
+            </nav>
+          </>
         )}
       </div>
     </motion.header>
