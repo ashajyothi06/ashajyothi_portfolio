@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import aboutImage from "@/assets/about.png";
+import aboutImage from "@/assets/about.jpeg";
 
 const Hero = () => {
   const roles = ["Full-Stack Developer", "AI Engineer"];
