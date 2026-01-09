@@ -1,16 +1,31 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Github } from "lucide-react";
-import { motion } from "framer-motion";
+import { Menu, X, Github, Sparkles } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("about");
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
+      setIsScrolled(window.scrollY > 50);
+      
+      // Update active section based on scroll position
+      const sections = ["about", "skills", "experience", "projects", "achievements", "contact"];
+      for (const section of sections.reverse()) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -26,45 +41,93 @@ const Header = () => {
 
   return (
     <motion.header 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-background/95 backdrop-blur-lg border-b border-border shadow-lg' 
-          : 'bg-transparent'
+          ? 'py-3' 
+          : 'py-5'
       }`}
     >
-      <div className="container mx-auto px-4 py-4">
+      {/* Background with glass effect */}
+      <motion.div
+        className={`absolute inset-0 transition-all duration-500 ${
+          isScrolled 
+            ? 'glass-effect-strong shadow-elevated' 
+            : 'bg-transparent'
+        }`}
+        initial={false}
+        animate={{
+          opacity: isScrolled ? 1 : 0,
+        }}
+      />
+
+      <div className="container mx-auto px-4 relative">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">A</span>
+          <motion.a
+            href="#about"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex items-center gap-3 group"
+          >
+            <motion.div 
+              whileHover={{ rotate: 10 }}
+              className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:glow-soft transition-all duration-300"
+            >
+              <span className="text-primary-foreground font-bold text-lg">A</span>
+            </motion.div>
+            <div className="hidden sm:block">
+              <span className="text-xl font-bold text-foreground group-hover:text-gradient transition-all duration-300">
+                Ashajyothi
+              </span>
             </div>
-            <span className="text-xl font-bold">Ashajyothi</span>
-          </div>
+          </motion.a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-muted-foreground hover:text-primary transition-smooth hover:text-gradient"
-              >
-                {item.name}
-              </a>
-            ))}
+          <nav className="hidden lg:flex items-center">
+            <div className="flex items-center gap-1 p-1.5 rounded-2xl glass-effect border-border/30">
+              {navItems.map((item) => {
+                const isActive = activeSection === item.href.slice(1);
+                return (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                      isActive 
+                        ? 'text-primary-foreground' 
+                        : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeNav"
+                        className="absolute inset-0 rounded-xl gradient-primary"
+                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                      />
+                    )}
+                    <span className="relative z-10">{item.name}</span>
+                  </motion.a>
+                );
+              })}
+            </div>
           </nav>
 
-          {/* GitHub Icon Button */}
-          <div className="hidden md:flex items-center">
-            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+          {/* Right side buttons */}
+          <div className="flex items-center gap-3">
+            {/* GitHub Button - Desktop */}
+            <motion.div 
+              whileHover={{ scale: 1.05 }} 
+              whileTap={{ scale: 0.95 }}
+              className="hidden md:block"
+            >
               <Button 
                 variant="outline" 
                 size="icon" 
-                className="rounded-xl border-primary/30 hover:border-primary hover:bg-primary/20 hover:glow-primary transition-all duration-300"
+                className="rounded-xl glass-effect border-primary/20 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
                 asChild
               >
                 <a href="https://github.com/ashajyothi06" target="_blank" rel="noopener noreferrer">
@@ -72,58 +135,119 @@ const Header = () => {
                 </a>
               </Button>
             </motion.div>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="default"
-            size="icon"
-            className="md:hidden bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/80 rounded-lg p-2 z-50 shadow-md transition-all duration-200"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+            {/* Hire Me Button - Desktop */}
+            <motion.div 
+              whileHover={{ scale: 1.02, y: -1 }} 
+              whileTap={{ scale: 0.98 }}
+              className="hidden lg:block"
+            >
+              <Button 
+                className="btn-premium text-primary-foreground rounded-xl px-5"
+                asChild
+              >
+                <a href="#contact">
+                  <Sparkles className="h-4 w-4 mr-2" />
+                  Let's Talk
+                </a>
+              </Button>
+            </motion.div>
+
+            {/* Mobile Menu Button */}
+            <motion.div whileTap={{ scale: 0.95 }} className="lg:hidden">
+              <Button
+                variant="default"
+                size="icon"
+                className="gradient-primary text-primary-foreground rounded-xl shadow-lg"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              >
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={isMenuOpen ? "close" : "menu"}
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                  </motion.div>
+                </AnimatePresence>
+              </Button>
+            </motion.div>
+          </div>
         </div>
 
         {/* Mobile Navigation Overlay */}
-        {isMenuOpen && (
-          <>
-            {/* Backdrop */}
-            <div 
-              className="fixed inset-0 bg-black/50 z-40 md:hidden"
-              onClick={() => setIsMenuOpen(false)}
-              aria-hidden="true"
-            />
-            
-            {/* Mobile Menu */}
-            <nav className="fixed top-[72px] left-0 right-0 md:hidden bg-background border-b border-border shadow-xl z-50">
-              <div className="flex flex-col p-6 space-y-4">
-                {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-foreground hover:text-primary transition-smooth py-3 px-4 rounded-lg hover:bg-muted/50 font-medium"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                ))}
-                <Button 
-                  variant="default" 
-                  size="default" 
-                  className="mt-2 bg-primary text-primary-foreground hover:bg-primary/90"
-                  asChild
-                >
-                  <a href="https://github.com/ashajyothi06" target="_blank" rel="noopener noreferrer">
-                    <Github className="h-4 w-4 mr-2" />
-                    GitHub
-                  </a>
-                </Button>
-              </div>
-            </nav>
-          </>
-        )}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <>
+              {/* Backdrop */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="fixed inset-0 bg-background/60 backdrop-blur-md z-40 lg:hidden"
+                onClick={() => setIsMenuOpen(false)}
+              />
+              
+              {/* Mobile Menu */}
+              <motion.nav
+                initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+                className="absolute top-full left-4 right-4 mt-4 lg:hidden glass-effect-strong rounded-2xl shadow-elevated z-50 overflow-hidden"
+              >
+                <div className="p-6 space-y-2">
+                  {navItems.map((item, index) => {
+                    const isActive = activeSection === item.href.slice(1);
+                    return (
+                      <motion.a
+                        key={item.name}
+                        href={item.href}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.05 }}
+                        className={`flex items-center py-3 px-4 rounded-xl font-medium transition-all duration-300 ${
+                          isActive 
+                            ? 'gradient-primary text-primary-foreground' 
+                            : 'text-foreground hover:bg-muted/50'
+                        }`}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </motion.a>
+                    );
+                  })}
+                  
+                  <div className="pt-4 border-t border-border/30 flex gap-3">
+                    <Button 
+                      variant="outline" 
+                      className="flex-1 rounded-xl border-primary/30"
+                      asChild
+                    >
+                      <a href="https://github.com/ashajyothi06" target="_blank" rel="noopener noreferrer">
+                        <Github className="h-4 w-4 mr-2" />
+                        GitHub
+                      </a>
+                    </Button>
+                    <Button 
+                      className="flex-1 gradient-primary text-primary-foreground rounded-xl"
+                      asChild
+                    >
+                      <a href="#contact" onClick={() => setIsMenuOpen(false)}>
+                        <Sparkles className="h-4 w-4 mr-2" />
+                        Let's Talk
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </motion.nav>
+            </>
+          )}
+        </AnimatePresence>
       </div>
     </motion.header>
   );
