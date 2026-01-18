@@ -9,6 +9,7 @@ import Education from "@/components/Education";
 import CaseStudies from "@/components/CaseStudies";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import ChatBot from "@/components/ChatBot";
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
       <CaseStudies />
       <Contact />
       <Footer />
+      <ChatBot />
     </div>
   );
 };

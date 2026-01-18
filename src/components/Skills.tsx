@@ -24,12 +24,11 @@ const Skills = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)",
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6, ease: [0.23, 1, 0.32, 1] as const }
     }
   };
 
@@ -81,16 +80,13 @@ const Skills = () => {
 
   return (
     <section id="skills" className="py-32 relative overflow-hidden">
-      {/* Premium background */}
       <div className="absolute inset-0 gradient-mesh opacity-50" />
       <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
       
-      {/* Decorative orbs */}
       <div className="orb orb-primary w-[500px] h-[500px] -top-20 -left-20 opacity-30" />
       <div className="orb orb-accent w-[400px] h-[400px] -bottom-20 -right-20 opacity-25" />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -117,7 +113,6 @@ const Skills = () => {
           </p>
         </motion.div>
 
-        {/* Skills Grid */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -128,7 +123,6 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <motion.div key={index} variants={itemVariants}>
               <Card className="h-full premium-card group">
-                {/* Gradient top accent */}
                 <div className={`h-1 bg-gradient-to-r ${category.gradient} rounded-t-2xl`} />
                 
                 <CardHeader className="pb-4">
@@ -173,7 +167,6 @@ const Skills = () => {
           ))}
         </motion.div>
 
-        {/* Highlights */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

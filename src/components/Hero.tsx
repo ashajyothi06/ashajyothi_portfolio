@@ -17,7 +17,6 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Track mouse for parallax effect
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = (e.clientX - rect.left - rect.width / 2) / 50;
@@ -37,22 +36,20 @@ const Hero = () => {
   };
 
   const slideInLeft = {
-    hidden: { opacity: 0, x: -80, filter: "blur(10px)" },
+    hidden: { opacity: 0, x: -80 },
     visible: {
       opacity: 1,
       x: 0,
-      filter: "blur(0px)",
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.8, ease: [0.23, 1, 0.32, 1] as const },
     },
   };
 
   const slideInUp = {
-    hidden: { opacity: 0, y: 40, filter: "blur(8px)" },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)",
-      transition: { duration: 0.7, ease: "easeOut" },
+      transition: { duration: 0.7, ease: [0.23, 1, 0.32, 1] as const },
     },
   };
 
@@ -62,7 +59,7 @@ const Hero = () => {
       opacity: 1,
       scale: 1,
       rotate: 0,
-      transition: { duration: 1, delay: 0.4, ease: [0.23, 1, 0.32, 1] },
+      transition: { duration: 1, delay: 0.4, ease: [0.23, 1, 0.32, 1] as const },
     },
   };
 
@@ -79,13 +76,9 @@ const Hero = () => {
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
       onMouseMove={handleMouseMove}
     >
-      {/* Premium mesh gradient background */}
       <div className="absolute inset-0 gradient-mesh" />
-      
-      {/* Aurora effect */}
       <div className="absolute inset-0 gradient-aurora animate-pulse opacity-50" />
       
-      {/* Animated floating orbs */}
       {floatingOrbs.map((orb, index) => (
         <motion.div
           key={index}
@@ -105,10 +98,8 @@ const Hero = () => {
         />
       ))}
 
-      {/* Noise overlay for texture */}
       <div className="absolute inset-0 noise-overlay pointer-events-none" />
 
-      {/* Subtle grid pattern */}
       <div 
         className="absolute inset-0 opacity-[0.02]"
         style={{
@@ -125,9 +116,7 @@ const Hero = () => {
           animate="visible"
           className="grid lg:grid-cols-2 gap-16 items-center"
         >
-          {/* Text Content */}
           <div className="space-y-8">
-            {/* Greeting badge */}
             <motion.div variants={slideInUp}>
               <Badge 
                 className="px-4 py-2 text-sm font-medium glass-effect border-primary/20 text-foreground"
@@ -137,7 +126,6 @@ const Hero = () => {
               </Badge>
             </motion.div>
 
-            {/* Name */}
             <motion.div variants={slideInLeft} className="space-y-2">
               <p className="text-primary font-medium text-lg tracking-wide">Hi, I am</p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
@@ -154,7 +142,6 @@ const Hero = () => {
               </h1>
             </motion.div>
 
-            {/* Role with typewriter effect */}
             <motion.div
               variants={slideInUp}
               className="flex items-center gap-3 text-xl md:text-2xl h-12"
@@ -163,9 +150,9 @@ const Hero = () => {
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentRoleIndex}
-                  initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -30, filter: "blur(8px)" }}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -30 }}
                   transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
                   className="text-primary font-bold cursor-blink"
                 >
@@ -174,7 +161,6 @@ const Hero = () => {
               </AnimatePresence>
             </motion.div>
 
-            {/* Description */}
             <motion.p
               variants={slideInUp}
               className="text-lg text-muted-foreground max-w-lg leading-relaxed"
@@ -185,9 +171,8 @@ const Hero = () => {
               that solve real-world problems.
             </motion.p>
 
-            {/* Skill tags */}
             <motion.div variants={slideInUp} className="flex flex-wrap gap-3">
-              {["Full-stack Developer", "AI & ML", "Cloud & DevOps"].map((tag, index) => (
+              {["Full-stack Developer", "AI & ML", "Cloud & DevOps"].map((tag) => (
                 <motion.div
                   key={tag}
                   whileHover={{ scale: 1.05, y: -2 }}
@@ -203,7 +188,6 @@ const Hero = () => {
               ))}
             </motion.div>
 
-            {/* CTA Buttons */}
             <motion.div variants={slideInUp} className="flex flex-wrap gap-4 pt-4">
               <motion.div
                 whileHover={{ scale: 1.02, y: -2 }}
@@ -243,7 +227,6 @@ const Hero = () => {
               </motion.div>
             </motion.div>
 
-            {/* Social Links */}
             <motion.div variants={slideInUp} className="flex gap-4 pt-4">
               {[
                 { icon: Github, href: "https://github.com/ashajyothi06", label: "GitHub" },
@@ -266,10 +249,8 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Profile Image */}
           <motion.div variants={imageVariants} className="flex justify-center lg:justify-end">
             <div className="relative">
-              {/* Animated rings */}
               <motion.div
                 className="absolute -inset-8 rounded-full border border-primary/10"
                 animate={{ rotate: 360 }}
@@ -286,10 +267,8 @@ const Hero = () => {
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-accent" />
               </motion.div>
 
-              {/* Glow effect behind image */}
               <div className="absolute inset-0 rounded-full blur-3xl opacity-40 gradient-primary scale-110" />
 
-              {/* Main image container */}
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.4 }}
@@ -305,7 +284,6 @@ const Hero = () => {
                   </div>
                 </div>
 
-                {/* Status indicator */}
                 <motion.div
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -313,7 +291,6 @@ const Hero = () => {
                 />
               </motion.div>
 
-              {/* Floating decorative elements */}
               <motion.div
                 animate={{ y: [-10, 10, -10], rotate: [0, 5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -333,7 +310,6 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

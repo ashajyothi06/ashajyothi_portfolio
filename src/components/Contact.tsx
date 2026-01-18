@@ -46,27 +46,23 @@ const Contact = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)",
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6, ease: [0.23, 1, 0.32, 1] as const }
     }
   };
 
   return (
     <section id="contact" className="py-32 relative overflow-hidden">
-      {/* Premium background */}
       <div className="absolute inset-0 gradient-mesh opacity-40" />
       <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
       
-      {/* Decorative orbs */}
       <div className="orb orb-primary w-[600px] h-[600px] top-1/4 -right-40 opacity-20" />
       <div className="orb orb-accent w-[400px] h-[400px] bottom-0 left-0 opacity-20" />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -100,7 +96,6 @@ const Contact = () => {
           viewport={{ once: true }}
           className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto"
         >
-          {/* Contact Information */}
           <motion.div variants={itemVariants} className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold mb-4 text-foreground">Let's Connect</h3>
@@ -110,7 +105,6 @@ const Contact = () => {
               </p>
             </div>
 
-            {/* Contact Cards */}
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <motion.div
@@ -145,7 +139,6 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Social Links */}
             <div className="space-y-4">
               <h4 className="font-semibold text-foreground">Follow Me</h4>
               <div className="flex gap-3">
@@ -166,7 +159,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Availability Badge */}
             <motion.div
               whileHover={{ scale: 1.02 }}
               className="p-6 rounded-2xl glass-effect border-green-500/30 bg-green-500/5"
@@ -184,7 +176,6 @@ const Contact = () => {
             </motion.div>
           </motion.div>
 
-          {/* Contact Form */}
           <motion.div variants={itemVariants}>
             <Card className="premium-card overflow-hidden">
               <div className="h-1.5 bg-gradient-to-r from-primary via-accent to-primary" />
