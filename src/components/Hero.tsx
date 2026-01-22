@@ -2,26 +2,18 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Download, Github, Linkedin, Mail, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import aboutImage from "@/assets/about.jpeg";
 
 const Hero = () => {
   const roles = ["Full-Stack Developer", "AI Engineer", "Problem Solver"];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
-
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left - rect.width / 2) / 50;
-    const y = (e.clientY - rect.top - rect.height / 2) / 50;
-    setMousePosition({ x, y });
   }, []);
 
   const containerVariants = {
@@ -63,40 +55,13 @@ const Hero = () => {
     },
   };
 
-  const floatingOrbs = [
-    { size: 300, x: "10%", y: "20%", delay: 0, color: "primary" },
-    { size: 250, x: "80%", y: "60%", delay: 2, color: "accent" },
-    { size: 200, x: "60%", y: "10%", delay: 4, color: "cyan" },
-    { size: 180, x: "20%", y: "70%", delay: 1, color: "primary" },
-  ];
-
   return (
     <section
       id="about"
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
-      onMouseMove={handleMouseMove}
     >
-      <div className="absolute inset-0 gradient-mesh" />
-      <div className="absolute inset-0 gradient-aurora animate-pulse opacity-50" />
-      
-      {floatingOrbs.map((orb, index) => (
-        <motion.div
-          key={index}
-          className={`orb orb-${orb.color} float-animation`}
-          style={{
-            width: orb.size,
-            height: orb.size,
-            left: orb.x,
-            top: orb.y,
-            animationDelay: `${orb.delay}s`,
-          }}
-          animate={{
-            x: mousePosition.x * (index + 1) * 0.5,
-            y: mousePosition.y * (index + 1) * 0.5,
-          }}
-          transition={{ type: "spring", stiffness: 50, damping: 30 }}
-        />
-      ))}
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-card to-background" />
 
       <div className="absolute inset-0 noise-overlay pointer-events-none" />
 
@@ -287,7 +252,7 @@ const Hero = () => {
                 <motion.div
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="absolute bottom-6 right-6 w-6 h-6 rounded-full bg-green-500 border-4 border-background shadow-lg"
+                  className="absolute bottom-6 right-6 w-6 h-6 rounded-full bg-primary border-4 border-background shadow-lg"
                 />
               </motion.div>
 
