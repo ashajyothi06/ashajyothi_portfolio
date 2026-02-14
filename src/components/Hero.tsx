@@ -74,12 +74,12 @@ const Hero = () => {
         }}
       />
 
-      <div className="container mx-auto px-4 py-20 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 py-20 relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid lg:grid-cols-2 gap-8 items-center"
+          className="grid lg:grid-cols-[1fr_auto] gap-6 items-center"
         >
           <div className="space-y-8">
             <motion.div variants={slideInUp}>
