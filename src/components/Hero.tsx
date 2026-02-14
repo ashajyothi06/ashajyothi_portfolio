@@ -79,7 +79,7 @@ const Hero = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid lg:grid-cols-2 gap-16 items-center"
+          className="grid lg:grid-cols-2 gap-8 items-center"
         >
           <div className="space-y-8">
             <motion.div variants={slideInUp}>
