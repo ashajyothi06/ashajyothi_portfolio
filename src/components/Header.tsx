@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Github, Sparkles } from "lucide-react";
+import { Menu, X, Github, Code2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
@@ -76,7 +76,7 @@ const Header = () => {
               whileHover={{ rotate: 10 }}
               className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:glow-soft transition-all duration-300"
             >
-              <span className="text-primary-foreground font-bold text-lg">A</span>
+              <Code2 className="text-primary-foreground h-5 w-5" />
             </motion.div>
             <div className="hidden sm:block">
               <span className="text-xl font-bold text-foreground group-hover:text-gradient transition-all duration-300">
@@ -147,7 +147,6 @@ const Header = () => {
                 asChild
               >
                 <a href="#contact">
-                  <Sparkles className="h-4 w-4 mr-2" />
                   Let's Talk
                 </a>
               </Button>
@@ -238,7 +237,6 @@ const Header = () => {
                       asChild
                     >
                       <a href="#contact" onClick={() => setIsMenuOpen(false)}>
-                        <Sparkles className="h-4 w-4 mr-2" />
                         Let's Talk
                       </a>
                     </Button>

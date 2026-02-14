@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Download, Github, Linkedin, Mail, Sparkles } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import aboutImage from "@/assets/about.jpeg";
@@ -86,7 +86,6 @@ const Hero = () => {
               <Badge 
                 className="px-4 py-2 text-sm font-medium glass-effect border-primary/20 text-foreground"
               >
-                <Sparkles className="w-4 h-4 mr-2 text-primary" />
                 Available for opportunities
               </Badge>
             </motion.div>
@@ -256,21 +255,6 @@ const Hero = () => {
                 />
               </motion.div>
 
-              <motion.div
-                animate={{ y: [-10, 10, -10], rotate: [0, 5, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 -right-4 w-16 h-16 rounded-2xl gradient-primary flex items-center justify-center shadow-elevated"
-              >
-                <span className="text-2xl">💻</span>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [10, -10, 10], rotate: [0, -5, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -bottom-4 -left-4 w-14 h-14 rounded-2xl glass-effect border-primary/30 flex items-center justify-center shadow-elevated"
-              >
-                <span className="text-xl">🚀</span>
-              </motion.div>
             </div>
           </motion.div>
         </motion.div>
