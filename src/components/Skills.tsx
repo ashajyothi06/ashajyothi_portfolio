@@ -36,37 +36,37 @@ const Skills = () => {
     {
       title: "Programming",
       icon: Code2,
-      skills: ["C", "C++", "Python", "Java", "JavaScript"],
+      skills: ["Python", "Java", "JavaScript"],
       gradient: "from-blue-500 via-cyan-500 to-teal-500"
-    },
-    {
-      title: "Frontend",
-      icon: Layers,
-      skills: ["React.js", "HTML5", "CSS3", "Responsive UI", "Tailwind CSS"],
-      gradient: "from-violet-500 via-purple-500 to-fuchsia-500"
-    },
-    {
-      title: "Backend",
-      icon: Server,
-      skills: ["Node.js", "Express.js", "REST APIs", "Spring Boot"],
-      gradient: "from-emerald-500 via-green-500 to-teal-500"
-    },
-    {
-      title: "Databases",
-      icon: Database,
-      skills: ["MySQL", "PostgreSQL", "MongoDB"],
-      gradient: "from-orange-500 via-amber-500 to-yellow-500"
     },
     {
       title: "AI / ML",
       icon: Brain,
-      skills: ["TensorFlow", "Keras", "Scikit-learn", "OpenCV", "Edge ML", "NLP"],
+      skills: ["TensorFlow", "Keras", "Scikit-learn", "NumPy", "Pandas", "Model Evaluation"],
       gradient: "from-pink-500 via-rose-500 to-red-500"
     },
     {
-      title: "DevOps & Tools",
+      title: "LLMs / Agentic AI",
+      icon: Zap,
+      skills: ["LLM Integration", "Prompt Engineering", "RAG Fundamentals", "Embeddings"],
+      gradient: "from-violet-500 via-purple-500 to-fuchsia-500"
+    },
+    {
+      title: "Deep Learning / CV",
+      icon: Layers,
+      skills: ["CNNs (VGG16, ResNet)", "OpenCV"],
+      gradient: "from-orange-500 via-amber-500 to-yellow-500"
+    },
+    {
+      title: "Backend / Data",
+      icon: Server,
+      skills: ["Flask", "REST APIs", "Node.js", "Express.js", "Socket.io", "MySQL", "MongoDB"],
+      gradient: "from-emerald-500 via-green-500 to-teal-500"
+    },
+    {
+      title: "Tools",
       icon: Cloud,
-      skills: ["Docker", "Kubernetes", "AWS EKS", "Git", "CI/CD", "Render"],
+      skills: ["Git/GitHub", "Postman", "Jupyter", "AWS (Deployment Exposure)"],
       gradient: "from-indigo-500 via-blue-500 to-sky-500"
     }
   ];
