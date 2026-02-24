@@ -60,7 +60,7 @@ const Skills = () => {
     {
       title: "Backend / Data",
       icon: Server,
-      skills: ["Flask", "REST APIs", "Node.js", "Express.js", "Socket.io", "MySQL", "MongoDB"],
+      skills: ["React.js", "Flask", "REST APIs", "Node.js", "Express.js", "Socket.io", "MySQL", "MongoDB"],
       gradient: "from-emerald-500 via-green-500 to-teal-500"
     },
     {
