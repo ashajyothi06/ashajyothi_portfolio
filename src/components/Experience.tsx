@@ -9,13 +9,14 @@ const Experience = () => {
       company: "Sklassics Technologies Pvt Ltd",
       position: "Software Developer (Intern)",
       location: "Hyderabad, India",
-      duration: "May 2025 - Sep 2025",
+      duration: "May 2025 - Dec 2025",
       type: "Internship",
       responsibilities: [
         "Developed and maintained React-based car rental applications, enhancing user experience with dynamic UI components and responsive designs",
         "Collaborated with cross-functional teams to integrate RESTful APIs (Node.js/Express) for real-time booking, vehicle inventory, and payment processing",
-        "Implemented modern UI/UX patterns and best practices to improve application performance and user satisfaction",
-        "Worked with database systems to manage vehicle data and user information efficiently"
+        "Enhanced UI/UX and mobile responsiveness for production web applications",
+        "Worked on frontend + AI-integrated workflows by integrating API outputs from ML/LLM-driven services into UI features",
+        "Collaborated cross-functionally to align delivery with backend APIs, performance, and scalability needs"
       ],
       technologies: ["React.js", "Node.js", "Express.js", "RESTful APIs", "JavaScript", "HTML5", "CSS3"]
     }

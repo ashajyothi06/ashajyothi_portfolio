@@ -7,7 +7,7 @@ const Achievements = () => {
   const achievements = [
     {
       icon: Code,
-      title: "LeetCode Rating: 1574",
+      title: "CodeChef Rating: 1712",
       description: "Strong problem-solving in Data Structures & Algorithms",
       color: "from-yellow-500 to-orange-500"
     },
@@ -16,6 +16,12 @@ const Achievements = () => {
       title: "Flipkart Grid 7.0",
       description: "National Semi-Finalist in one of India's largest tech competitions",
       color: "from-blue-500 to-cyan-500"
+    },
+    {
+      icon: Award,
+      title: "Semi-Finalist Convolve 4.0 GenAI Track",
+      description: "2026 Pan-IIT Hackathon GenAI Track Semi-Finalist",
+      color: "from-indigo-500 to-violet-500"
     },
     {
       icon: Award,

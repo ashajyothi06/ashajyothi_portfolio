@@ -1,20 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import aboutImage from "@/assets/about.jpeg";
 
 const Hero = () => {
-  const roles = ["Full-Stack Developer", "AI Engineer", "Problem Solver"];
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  const role = "AI - Fullstack Engineer";
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -110,19 +101,8 @@ const Hero = () => {
               variants={slideInUp}
               className="flex items-center gap-3 text-xl md:text-2xl h-12"
             >
-              <span className="text-muted-foreground">I am a</span>
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={currentRoleIndex}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -30 }}
-                  transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-                  className="text-primary font-bold cursor-blink"
-                >
-                  {roles[currentRoleIndex]}
-                </motion.span>
-              </AnimatePresence>
+              <span className="text-muted-foreground">I am an</span>
+              <span className="text-primary font-bold">{role}</span>
             </motion.div>
 
             <motion.p
