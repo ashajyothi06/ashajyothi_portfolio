@@ -6,6 +6,19 @@ import { Building2, Calendar, MapPin, Briefcase } from "lucide-react";
 const Experience = () => {
   const experiences = [
     {
+      company: "GYAINI GINI PVT LTD",
+      position: "AI Fullstack Developer (Intern)",
+      location: "Bangalore (Remote), India",
+      duration: "Apr 2026 - Present",
+      type: "Internship",
+      responsibilities: [
+        "Developed and validated computer vision pipelines using YOLOv8 for object detection, model evaluation, and inference optimization",
+        "Worked with ONNX and RKNN conversion workflows and Linux-based deployment environments to support cross-platform AI model execution",
+        "Integrated LLM-powered features into dashboard applications and contributed to AI-driven workflows by combining computer vision, NLP, and automation capabilities"
+      ],
+      technologies: ["YOLOv8", "ONNX", "RKNN", "LLM Integration", "Python", "Linux", "React.js"]
+    },
+    {
       company: "Sklassics Technologies Pvt Ltd",
       position: "Software Developer (Intern)",
       location: "Hyderabad, India",
