@@ -24,6 +24,12 @@ const Achievements = () => {
       color: "from-indigo-500 to-violet-500"
     },
     {
+      icon: Trophy,
+      title: "Rank 32 - Quantathon Final Round",
+      description: "2026 Quantathon Final Round at IIT Madras",
+      color: "from-teal-500 to-cyan-500"
+    },
+    {
       icon: Award,
       title: "Top 10 - Code Clash",
       description: "IEEE-TEMS VIT Vellore coding competition",

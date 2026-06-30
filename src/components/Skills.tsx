@@ -36,37 +36,37 @@ const Skills = () => {
     {
       title: "Programming",
       icon: Code2,
-      skills: ["Python", "Java", "JavaScript"],
+      skills: ["Python", "Java"],
       gradient: "from-blue-500 via-cyan-500 to-teal-500"
     },
     {
-      title: "AI / ML",
-      icon: Brain,
-      skills: ["TensorFlow", "Keras", "Scikit-learn", "NumPy", "Pandas", "Model Evaluation"],
+      title: "Gen AI",
+      icon: Zap,
+      skills: ["Large Language Models (LLMs)", "Prompt Engineering", "Retrieval-Augmented Generation (RAG)", "Embeddings", "AI Agents", "AI Workflow Design"],
       gradient: "from-pink-500 via-rose-500 to-red-500"
     },
     {
-      title: "LLMs / Agentic AI",
-      icon: Zap,
-      skills: ["LLM Integration", "Prompt Engineering", "RAG Fundamentals", "Embeddings"],
+      title: "Python Libraries",
+      icon: Brain,
+      skills: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-learn"],
       gradient: "from-violet-500 via-purple-500 to-fuchsia-500"
     },
     {
-      title: "Deep Learning / CV",
-      icon: Layers,
-      skills: ["CNNs (VGG16, ResNet)", "OpenCV"],
+      title: "Backend",
+      icon: Server,
+      skills: ["Python", "Node.js", "REST APIs", "System Integration", "MySQL"],
       gradient: "from-orange-500 via-amber-500 to-yellow-500"
     },
     {
-      title: "Backend / Data",
-      icon: Server,
-      skills: ["React.js", "Flask", "REST APIs", "Node.js", "Express.js", "Socket.io", "MySQL", "MongoDB"],
+      title: "Frontend",
+      icon: Layers,
+      skills: ["React.js", "HTML", "CSS", "JavaScript"],
       gradient: "from-emerald-500 via-green-500 to-teal-500"
     },
     {
-      title: "Tools",
+      title: "Systems & Tools",
       icon: Cloud,
-      skills: ["Git/GitHub", "Postman", "Jupyter", "AWS (Deployment Exposure)"],
+      skills: ["Git", "GitHub", "Postman", "Jupyter Notebook"],
       gradient: "from-indigo-500 via-blue-500 to-sky-500"
     }
   ];

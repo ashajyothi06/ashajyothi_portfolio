@@ -89,7 +89,7 @@ const Education = () => {
                   {/* GPA Badge */}
                   <div className="flex items-center gap-3">
                     <Badge className="px-4 py-2 text-lg gradient-primary text-primary-foreground font-bold">
-                      GPA: 8.9
+                      GPA: 8.84 / 10
                     </Badge>
                   </div>
 

@@ -28,6 +28,63 @@ import smartMonitoringImg from "@/assets/smart-monitoring.jpg";
 const Projects = () => {
   const projects = [
     {
+      title: "Document Question Answering System (GenAI)",
+      description:
+        "Retrieval-augmented question answering app that answers queries from large document collections.",
+      image:
+        "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600&h=400&fit=crop",
+      icon: FileSearch,
+      technologies: ["Python", "LLMs", "RAG", "Embeddings", "Vector Search"],
+      features: [
+        "Document preprocessing, chunking, and embedding generation",
+        "Retrieval workflow to surface relevant document context",
+        "API-based LLM integration for context-aware answers",
+        "Efficient information retrieval across large corpora",
+        "Accurate question answering grounded in source documents",
+      ],
+      github: "https://github.com/ashajyothi06",
+      demo: "#",
+      category: "AI/ML",
+    },
+    {
+      title: "MCP-AI Intelligent Project Allocation System",
+      description:
+        "AI-powered recommendation platform matching candidates with projects using skill and domain analysis.",
+      image:
+        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop",
+      icon: Brain,
+      technologies: ["Python", "LLMs", "AI Agents", "Multi-Agent Workflows"],
+      features: [
+        "LLM-based reasoning over project requirements and candidate fit",
+        "Multi-agent workflows automating allocation decisions",
+        "Scalable decision pipelines with custom allocation metrics",
+        "Skill and domain analysis for better recommendations",
+        "Improves recommendation quality through agentic reasoning",
+      ],
+      github: "https://github.com/ashajyothi06",
+      demo: "#",
+      category: "AI/ML",
+    },
+    {
+      title: "AI Knowledge Assistant",
+      description:
+        "AI-powered assistant answering user queries from organizational knowledge sources using NLP and LLMs.",
+      image:
+        "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=400&fit=crop",
+      icon: Bot,
+      technologies: ["Python", "LLMs", "NLP", "APIs", "Semantic Search"],
+      features: [
+        "NLP-based document processing and analysis",
+        "Semantic search across organizational knowledge",
+        "LLM-driven, context-aware response generation",
+        "Reduces manual search effort via intelligent automation",
+        "Improves information discovery for end users",
+      ],
+      github: "https://github.com/ashajyothi06",
+      demo: "#",
+      category: "AI/ML",
+    },
+    {
       title: "Fake News Detection using ML",
       description:
         "Machine learning model using NLP and TF-IDF to detect misinformation with high accuracy.",
