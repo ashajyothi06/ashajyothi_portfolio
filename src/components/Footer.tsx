@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Heart, ArrowUp, MapPin } from "lucide-react";
+import { Github, Linkedin, Mail, Heart, ArrowUp, MapPin, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
@@ -49,7 +49,7 @@ const Footer = () => {
                 whileHover={{ rotate: 10 }}
                 className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center shadow-lg"
               >
-                <span className="text-primary-foreground font-bold text-xl">A</span>
+                <Code2 className="text-primary-foreground h-6 w-6" />
               </motion.div>
               <span className="text-2xl font-bold text-gradient">Ashajyothi Velpula</span>
             </motion.a>
@@ -83,13 +83,13 @@ const Footer = () => {
             transition={{ delay: 0.1 }}
           >
             <h3 className="font-bold text-lg mb-6 text-foreground">Quick Links</h3>
-            <div className="space-y-3">
+            <div className="space-y-5">
               {quickLinks.map((link) => (
                 <motion.a
                   key={link.name}
                   href={link.href}
                   whileHover={{ x: 5 }}
-                  className="block text-muted-foreground hover:text-primary transition-all duration-300 line-hover w-fit"
+                  className="block py-1 text-muted-foreground hover:text-primary transition-all duration-300 line-hover w-fit"
                 >
                   {link.name}
                 </motion.a>
