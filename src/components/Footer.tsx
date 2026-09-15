@@ -83,13 +83,13 @@ const Footer = () => {
             transition={{ delay: 0.1 }}
           >
             <h3 className="font-bold text-lg mb-6 text-foreground">Quick Links</h3>
-            <div className="space-y-3">
+            <div className="space-y-5">
               {quickLinks.map((link) => (
                 <motion.a
                   key={link.name}
                   href={link.href}
                   whileHover={{ x: 5 }}
-                  className="block text-muted-foreground hover:text-primary transition-all duration-300 line-hover w-fit"
+                  className="block py-1 text-muted-foreground hover:text-primary transition-all duration-300 line-hover w-fit"
                 >
                   {link.name}
                 </motion.a>
