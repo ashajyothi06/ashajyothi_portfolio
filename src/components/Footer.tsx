@@ -49,7 +49,7 @@ const Footer = () => {
                 whileHover={{ rotate: 10 }}
                 className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center shadow-lg"
               >
-                <span className="text-primary-foreground font-bold text-xl">A</span>
+                <Code2 className="text-primary-foreground h-6 w-6" />
               </motion.div>
               <span className="text-2xl font-bold text-gradient">Ashajyothi Velpula</span>
             </motion.a>
